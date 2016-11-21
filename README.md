@@ -1,24 +1,14 @@
-# Babylon Ruby Test
-Your task is to create an app that will allow patients to book appointments with a doctor, using the dataset provided.
+Setup:
 
-## Requirements
-You should create a command line app that accepts a single argument, which is the time that the patient
-would like to book to see a doctor. Eg:
+Please ensure bundler is installed, then use the 'bundle' command to acquire the necessary gems.
 
-    $ ./availability.rb 12:40
+Running and behaviour:
 
-The app should check which is the next available slot and book it.
-It should print the time of the appointment that was booked
+Execute 'app.rb' from the command line with a single argument (time of booking, hh:mm).
+The app will find the next available slot, print the time to the console, and then remove that slot from the JSON file.
+Any bookings requested 'before' 8am (i.e. the first slot listed in the JSON) will be given the first available slot.
+Any bookings requested 'after' 3pm (i.e. the last slot in the JSON) will raise an exception with the message "no available bookings".
 
-## Additional Requirements
-Patients cannot book appointments before 8am and after 3pm. Once an availability has been
-used up for an appointment it cannot be booked again.
+Testing:
 
-In the dataset there are multiple doctors (id: 1 & 2) and each doctor can only have 1 appointment per slot.
-For example, you could potentially book 12:20 once for doctor 1 and again for doctor 2.
-
-## Constraints
-* Please use the JSON file provided to load availability into your app.
-* Your app should be an executable ruby script (command line).
-* Your app should accept a time (eg: 12:40)
-* Your app should print the time that was booked (eg: 1:10)
+Using RSpec. Tests currently failing for booking due to a Time parsing problem I have been unable to locate.
