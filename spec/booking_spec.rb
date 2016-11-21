@@ -27,7 +27,7 @@ describe 'Booking' do
     subject {Booking.new(Time.parse("08:00"), availability)}
 
     it 'should return an array with a booked slot removed' do
-      expect{subject.update_availability(Time.parse(08:00))}.to be_instance_of Array
+      expect{subject.update_availability(Time.parse('08:00'))}.to be_instance_of Array
     end
   end
 
